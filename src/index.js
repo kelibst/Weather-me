@@ -1,1 +1,4 @@
-console.log('Hello World!')
+import {weatherCheck} from './script'
+
+
+weatherCheck().startCheck();
