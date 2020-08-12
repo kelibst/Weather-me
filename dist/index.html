@@ -6,11 +6,57 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/5e0cee5c01.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
-    <title>Just do it To do's</title>
+    <title>Weather me</title>
 </head>
 
 <body class="bg-light">
-
+    <div class="bg-cover">
+        <div class="contain d-sm-flex">
+            <div class="col-md-8 left-side">
+                <h1 class="brand mt-5 text-white ml-5 text-uppercase font-weight-bolder display-6">Weather Me</h1>
+                <div class="bottom">
+                    
+                    <div class="location d-flex text-white">
+                        <h2 class="deg font-weight-bolder display-1">16*</h2>
+                        
+                        <div class="h6 location-time mx-3">
+                            <h5 class="location-text display-4">London</h5>
+                            06:09 - Monday, 09 Sep 2020
+                        </div>
+                        <div class="location-icons">
+                            <i class="fas fa-cloud"></i>
+                            <p class="text-capitalize">cloudy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 pt-5 side-col">
+                <form action="#" class="form-location">
+                    <div class="form-group">
+                        
+                        <input type="text" name="location" class="form-control location-input" id="location" placeholder="Enter a Location">
+                      </div>
+                </form>
+              
+                <div class="search">
+                    <ul class="search-res">
+                        <li>New York</li>
+                        <li>Accra</li>
+                        <li>Lome</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="details">
+                    <h6 class="text-light font-weight-bolder text-uppercase">Weather details</h6>
+                    <ul class=details-res">
+                        <li><span>Cloudy</span><span>86</span></li>
+                        <li><span>Humidity</span><span>86</span></li>
+                        <li><span>Wind</span><span>86</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <footer class="bg-white text-center m-4 shadow round1 py-3">
     Project by: Keli <a href="https://dribbble.com/shots/9713186-To-Do-Dashboard/attachments/1743028?mode=media" class="btn btn-outline-success">Kirill Zhukovsky</a> design.
