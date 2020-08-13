@@ -1,4 +1,3 @@
-import {weatherCheck} from './script'
-
+import weatherCheck from './script';
 
 weatherCheck().startCheck();

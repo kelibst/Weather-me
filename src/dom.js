@@ -1,3 +1,3 @@
 const form = document.querySelector('.form-location');
-
-export {form}
+const alertContainer = document.querySelector('.alert-container');
+export { form, alertContainer };
