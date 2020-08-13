@@ -35,7 +35,7 @@ Read more on the project specifications on [Odin](https://www.theodinproject.com
 
 
 # Live Demo
-[Live Demo Link](https://raw.githack.com/kelibst/Weather-me/working/dist/index.html)
+[Live Demo Link](https://heuristic-hopper-7e6e01.netlify.app/)
 
 # Built With
 
@@ -47,7 +47,7 @@ Read more on the project specifications on [Odin](https://www.theodinproject.com
 
 
 # usage
-visit live [link](https://raw.githack.com/kelibst/Weather-me/working/dist/index.html) in your browser.
+visit live [link](https://heuristic-hopper-7e6e01.netlify.app/) in your browser.
 
 
 
