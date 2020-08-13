@@ -41,6 +41,10 @@ ul{
     list-style: none;
     color: rgb(201, 201, 201);
 }
+.icofont-clouds{
+    color: white;
+    font-size: 5.5rem;
+}
 li{
     padding-top: 1rem; 
     display: flex;

@@ -50,7 +50,7 @@ function weatherCheck() {
                                    
                                 </div>
                                 <div class="location-icons">
-                                    <i class="fas fa-cloud"></i>
+                                <i class="icofont-clouds"></i>
                                     <p class="text-capitalize">${data.weather[0].description}</p>
                                 </div>
                             `;
@@ -63,10 +63,7 @@ function weatherCheck() {
       const container = document.createElement('ul');
 
       container.classList = clas;
-      if (!node.classList.contains('search')) {
-        node.innerHTML = '';
-      }
-
+      node.innerHTML = '';
       container.innerHTML = template;
       node.appendChild(container);
     },
