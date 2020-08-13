@@ -61,9 +61,12 @@ function weatherCheck() {
     // function to render things on the screen
     render(node, clas, template) {
       const container = document.createElement('ul');
-      node.innerHTML = '';
+
       container.classList = clas;
-      container.innerHTML = '';
+      if (!node.classList.contains('search')) {
+        node.innerHTML = '';
+      }
+
       container.innerHTML = template;
       node.appendChild(container);
     },
@@ -73,7 +76,7 @@ function weatherCheck() {
         if (data.length > 5) {
           data = data.filter((val) => val.Country.EnglishName !== data[0].Country.EnglishName);
           data.forEach((val) => {
-            this.render(document.querySelector('.search'), 'search-res', this.templates().searchUl(val));
+            this.render(document.querySelector('.search'), 'search-res text-secondary', this.templates().searchUl(val));
           });
         } else if (data.length < 5) {
           data.forEach((val) => {
