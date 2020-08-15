@@ -1,4 +1,4 @@
-import { form, alertContainer, closeContainer, renderContents } from './dom';
+import { form, alertContainer, closeContainer, renderContents,sideCol } from './dom';
 
 const cityKey = 'QqFCfLuVXyO7oxFlgu4nWgRjh5hYjgVA';
 const cityBase = 'http://dataservice.accuweather.com/locations/v1/cities/search';
@@ -8,9 +8,12 @@ const weatherKey = '67c0476c31125a1dbcfdd521a5a88903';
 
 function weatherCheck() {
   return {
-
+    cityData: [],
     city: '',
     country: "",
+    detailsnode: document.querySelector('.details'),
+    searchNode: document.querySelector('.search'),
+    bottomNode: document.querySelector('.bottom'),
 
     async getCity(city, base, key) {
       const query = `?apikey=${key}&q=${city}`;
@@ -27,17 +30,26 @@ function weatherCheck() {
 
       return data;
     },
+    async getWeatherbyLocation(lat, lon, key){
+      const WeatherBase = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`;
+      const response = await fetch(WeatherBase);
+      const data = await response.json();
+      return data;
+    },
 
     outputCity(data) {
       if (data.length) {
+        this.cityData = data;
+        this.searchNode.innerHTML = "";
         if (data.length > 5) {
           data = data.filter((val) => val.Country.EnglishName !== data[0].Country.EnglishName);
-          data.forEach((val) => {
-            renderContents().render(document.querySelector('.search'), 'search-res text-secondary', renderContents().templates().searchUl(val));
+          data.forEach((val, ind) => {
+            console.log(ind)
+            renderContents().render(this.searchNode, 'search-res text-secondary', renderContents().templates().searchUl(val,ind));
           });
         } else if (data.length < 5) {
-          data.forEach((val) => {
-            renderContents().render(document.querySelector('.search'), 'search-res', renderContents().templates().searchUl(val));
+          data.forEach((val, ind) => {
+            renderContents().render(this.searchNode, 'search-res', renderContents().templates().searchUl(val,ind));
           });
         }
       } else {
@@ -52,14 +64,16 @@ function weatherCheck() {
         this.getCity(form.location.value, cityBase, cityKey)
           .then(data => {
             console.log(data)
+            this.detailsnode.innerHTML = "";
+            this.bottomNode.innerHTML = "";
             this.outputCity(data);
             this.city = data[0].EnglishName;
             this.country = data[0].Country.ID;
             this.getWeather(this.city, weatherKey,this.country)
               .then(data => {
-                console.log(data)
-                renderContents().render(document.querySelector('.details'), 'details-res', renderContents().templates().detailsUl(data));
-                renderContents().render(document.querySelector('.bottom'), 'location d-flex text-white', renderContents().templates().mainWeather(data));
+                
+                renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));
+                renderContents().render(this.bottomNode, 'location d-flex text-white', renderContents().templates().mainWeather(data));
               });
           })
           .catch(() => alertContainer.classList.remove('d-none'));
@@ -76,12 +90,30 @@ function weatherCheck() {
             this.country = data[0].Country.ID;
             this.getWeather(this.city, weatherKey, this.country)
               .then(data => {
-                renderContents().render(document.querySelector('.details'), 'details-res', renderContents().templates().detailsUl(data));
-                renderContents().render(document.querySelector('.bottom'), 'location d-flex text-white', renderContents().templates().mainWeather(data));
+                renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));
+                renderContents().render(this.bottomNode, 'location d-flex text-white', renderContents().templates().mainWeather(data));
               });
           })
           .catch(() => alertContainer.classList.remove('d-none'));
       });
+
+
+      //let's display weather data form a particular city when it is selected from the dom element
+      sideCol.addEventListener('click', (e)=> {
+        if(e.target.classList.contains('searchLi')){
+          const lat = this.cityData[parseInt(e.target.id,10)].GeoPosition.Latitude;
+          const lon = this.cityData[parseInt(e.target.id,10)].GeoPosition.Longitude;
+          console.log(this.cityData[parseInt(e.target.id,10)])
+          
+          this.getWeatherbyLocation(lat, lon, weatherKey)
+          .then(data=>{
+            this.detailsnode.innerHTML = "";
+            this.bottomNode.innerHTML = "";
+            renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));
+            renderContents().render(this.bottomNode, 'location d-flex text-white', renderContents().templates().mainWeather(data))
+          })
+        }
+      })
     },
   };
 }

@@ -1,7 +1,8 @@
 const form = document.querySelector('.form-location');
 import { format } from 'date-fns';
 const alertContainer = document.querySelector('.error-container');
-const closeContainer = document.querySelector('.close-btn')
+const closeContainer = document.querySelector('.close-btn');
+const sideCol = document.querySelector('.side-col');
 
 
 function renderContents(){
@@ -9,8 +10,8 @@ function renderContents(){
         // setup templates for render function
     templates() {
         return {
-          searchUl(data) {
-            return ` <li><span>${data.EnglishName}</span><span>${data.Country.EnglishName}</span></li>`;
+          searchUl(data, ind) {
+            return ` <li id="${ind}" class="searchLi"><span>${data.EnglishName}</span><span>${data.Country.EnglishName}</span></li>`;
           },
           detailsUl(data) {
             return `<li><span>${data.name}</span><span>${data.sys.country}</span></li>
@@ -42,11 +43,10 @@ function renderContents(){
         const container = document.createElement('ul');
   
         container.classList = clas;
-        node.innerHTML = '';
         container.innerHTML = template;
         node.appendChild(container);
       },
     }
 }
 
-export { form, alertContainer, closeContainer,renderContents };
+export { form, alertContainer, closeContainer,renderContents, sideCol };
