@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { form, alertContainer } from './dom';
+import { form, alertContainer, closeContainer } from './dom';
 
 const cityKey = 'QqFCfLuVXyO7oxFlgu4nWgRjh5hYjgVA';
 const cityBase = 'http://dataservice.accuweather.com/locations/v1/cities/search';
@@ -81,7 +81,7 @@ function weatherCheck() {
           });
         }
       } else {
-        alertContainer.classList.add('show');
+        alertContainer.classList.remove('d-none');
       }
     },
 
@@ -99,8 +99,11 @@ function weatherCheck() {
                 this.render(document.querySelector('.bottom'), 'location d-flex text-white', this.templates().mainWeather(data));
               });
           })
-          .catch(() => alertContainer.classList.add('show'));
+          .catch(() => alertContainer.classList.remove('d-none'));
       });
+      closeContainer.addEventListener('click', ()=>{
+        alertContainer.classList.add('d-none');
+      })
       // load and display some data when the page loads
       document.addEventListener('DOMContentLoaded', () => {
         this.getCity('accra', cityBase, cityKey)
@@ -113,7 +116,7 @@ function weatherCheck() {
                 this.render(document.querySelector('.bottom'), 'location d-flex text-white', this.templates().mainWeather(data));
               });
           })
-          .catch(() => alertContainer.classList.add('show'));
+          .catch(() => alertContainer.classList.remove('d-none'));
       });
     },
   };

@@ -37,6 +37,24 @@
     background-color: transparent;
     box-shadow: none;
 }
+
+i.icofont-ui-close {
+    font-size: 1.2rem;
+    position: absolute;
+    right: .4rem;
+    top: .2rem;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 3rem;
+}
+
+.container.error-container {
+    color: white;
+    background: crimson;
+    padding: 2rem 1rem;
+    position: relative;
+    border-radius: .5rem;
+}
 ul{
     list-style: none;
     color: rgb(201, 201, 201);
