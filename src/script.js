@@ -1,4 +1,4 @@
-import { form, alertContainer, closeContainer, renderContents,sideCol } from './dom';
+import { form, alertContainer, closeContainer, renderContents,sideCol, bgCover } from './dom';
 
 const cityKey = 'QqFCfLuVXyO7oxFlgu4nWgRjh5hYjgVA';
 const cityBase = 'http://dataservice.accuweather.com/locations/v1/cities/search';
@@ -71,7 +71,15 @@ function weatherCheck() {
             this.country = data[0].Country.ID;
             this.getWeather(this.city, weatherKey,this.country)
               .then(data => {
-                
+                const pattern = /rain/gmi;
+                const pattern1 = /snow/gmi;
+                if(pattern.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-rain";
+                }else if(pattern1.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-snow";
+                }else{
+                  bgCover.classList="bgCover bg-sunny";
+                };
                 renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));
                 renderContents().render(this.bottomNode, 'location d-flex text-white', renderContents().templates().mainWeather(data));
               });
@@ -90,6 +98,15 @@ function weatherCheck() {
             this.country = data[0].Country.ID;
             this.getWeather(this.city, weatherKey, this.country)
               .then(data => {
+                const pattern = /rain/gmi;
+                const pattern1 = /snow/gmi;
+                if(pattern.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-rain";
+                }else if(pattern1.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-snow";
+                }else{
+                  bgCover.classList="bgCover bg-sunny";
+                };
                 renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));
                 renderContents().render(this.bottomNode, 'location d-flex text-white', renderContents().templates().mainWeather(data));
               });
@@ -107,6 +124,15 @@ function weatherCheck() {
           
           this.getWeatherbyLocation(lat, lon, weatherKey)
           .then(data=>{
+            const pattern = /rain/gmi;
+                const pattern1 = /snow/gmi;
+                if(pattern.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-rain";
+                }else if(pattern1.test(data.weather[0].description)){
+                  bgCover.classList="bgCover bg-snow";
+                }else{
+                  bgCover.classList="bgCover bg-sunny";
+                };
             this.detailsnode.innerHTML = "";
             this.bottomNode.innerHTML = "";
             renderContents().render(this.detailsnode, 'details-res', renderContents().templates().detailsUl(data));

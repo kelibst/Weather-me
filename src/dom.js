@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 const alertContainer = document.querySelector('.error-container');
 const closeContainer = document.querySelector('.close-btn');
 const sideCol = document.querySelector('.side-col');
+const bgCover = document.querySelector('.bg-cover');
 
 
 function renderContents(){
@@ -49,4 +50,4 @@ function renderContents(){
     }
 }
 
-export { form, alertContainer, closeContainer,renderContents, sideCol };
+export { form, alertContainer, closeContainer,renderContents, sideCol, bgCover };
