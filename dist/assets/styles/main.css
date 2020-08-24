@@ -1,0 +1,84 @@
+.bg-cover {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+div.bg-sunny{
+    background-image: linear-gradient(0deg, #171616, #00000038), url(https://images.unsplash.com/photo-1559707276-acebbece9d14?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9);
+}
+div.bg-rain{
+    background-image: linear-gradient(0deg, #171616, #00000038), url(https://images.unsplash.com/photo-1507027682794-35e6c12ad5b4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9);
+}
+div.bg-snow{
+    background-image: linear-gradient(0deg, #171616, #00000038), url(https://images.unsplash.com/photo-1542601098-8fc114e148e2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9);
+}
+
+.left-side {
+    position: relative;
+    height: 100vh;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 4rem;
+    left: 4rem;
+}
+
+.location {
+    align-items: center;
+}
+.fa-cloud{
+    font-size: 2.5rem;
+    margin: 1.4rem 0;
+}
+.deg{
+    font-size: 8rem;
+}
+.location-input{
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+}
+.location-input:focus{
+    color: whitesmoke;
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+i.icofont-ui-close {
+    font-size: 1.2rem;
+    position: absolute;
+    right: .4rem;
+    top: .2rem;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 3rem;
+}
+
+.container.error-container {
+    color: white;
+    background: crimson;
+    padding: 2rem 1rem;
+    position: relative;
+    border-radius: .5rem;
+}
+ul{
+    list-style: none;
+    color: rgb(201, 201, 201);
+}
+.icofont-clouds{
+    color: white;
+    font-size: 5.5rem;
+}
+li{
+    padding-top: 1rem; 
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    cursor: pointer;
+}
+.side-col{
+    background-image: linear-gradient(45deg, #47525d, #0000006b);
+}
+

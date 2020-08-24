@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="assets/styles/icofont.min.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <title>Weather me</title>
+</head>
+
+<body class="bg-light">
+    <div class="bg-cover bg-rain">
+        
+        <div class="contain d-sm-flex">
+        
+            <div class="col-md-8 d-none d-md-block left-side">
+                <h1 class="brand mt-5 text-white ml-5 text-uppercase font-weight-bolder display-6">Weather Me</h1>
+                <div class="bottom">
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-4 pt-5 side-col">
+                <div class="container error-container d-none my-5">
+                    <i class="icofont-ui-close close-btn"></i>
+                    <strong>Hello!</strong> We were unable to get data regarding the city you entered!.
+                </div>
+                <form class="form-location">
+                    <div class="form-group">
+                        
+                        <input type="text" name="location" class="form-control location-input" id="location" placeholder="Enter a Location">
+                        <input type="Submit" class="btn w-100 btn-outline-success">
+                      </div>
+                </form>
+                <h6 class="text-secondary">Related Search</h6>
+                <div class="search ">
+                
+                </div>
+                <hr>
+                <div class="details">
+                    <h6 class="text-light font-weight-bolder text-uppercase">Weather details</h6>
+                    <ul class=details-res">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="bg-white text-center m-4 shadow round1 py-3">
+    Project by: <a href="github.com/kelibst" target="_blank" class="btn btn-outline-success">Keli</a> Design inspiration<a href="https://dribbble.com/shots/7118235-Weather-DailyUI-037" target="_blank" class="btn btn-outline-success">Arthur K.</a> design.
+</footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+
+    <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>
