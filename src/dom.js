@@ -6,7 +6,7 @@ const closeContainer = document.querySelector('.close-btn');
 const sideCol = document.querySelector('.side-col');
 const bgCover = document.querySelector('.bg-cover');
 
-function renderContents() {
+const renderContents = () => {
   return {
     // setup templates for render function
     templates() {
@@ -36,7 +36,6 @@ function renderContents() {
                                   </div>
                               `;
         },
-
       };
     },
     // function to render things on the screen
